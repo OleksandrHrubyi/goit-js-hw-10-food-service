@@ -8,17 +8,56 @@ const listRef = document.querySelector('.js-menu')
 listRef.insertAdjacentHTML('beforeend', result)
 
 
-
-
 const Theme = {
   LIGHT: 'light-theme',
   DARK: 'dark-theme',
 };
 
 const toogleRef = document.querySelector('#theme-switch-toggle')
-toogleRef.addEventListener('change', changeTheme)
+const bodyRef = document.querySelector('body');
+toogleRef.addEventListener('change', changeToggleTheme)
 
-function changeTheme() {
-    const bodyRef = document.querySelector('body')
-    bodyRef.classList.toggle('dark-theme')
+
+function changeToggleTheme(event) {
+    
+    if (event.target.checked)
+   
+    { 
+        bodyRef.classList.add(Theme.DARK)
+        bodyRef.classList.remove(Theme.LIGHT)
+        localStorage.setItem('theme', 'dark');
+        
+        
+        
+    }
+    
+    else {
+         bodyRef.classList.add(Theme.LIGHT)
+         bodyRef.classList.remove(Theme.DARK)
+        localStorage.setItem('theme', 'light');
+    }
+    
 }
+
+
+if (localStorage.getItem('theme') === 'dark') {
+       bodyRef.classList.add(Theme.DARK)
+        toogleRef.checked = true
+    }
+   
+    
+
+    
+    
+
+   
+ 
+
+
+
+
+
+// 
+
+
+
