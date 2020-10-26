@@ -1,7 +1,5 @@
-export const bodyRef = document.querySelector('body');
-export const toogleRef = document.querySelector('#theme-switch-toggle');
-export const LIGHT = 'light-theme';
-export const DARK = 'dark-theme';
+import { bodyRef, toogleRef } from './ref';
+import { LIGHT, DARK } from './tamplate';
 
 export const changeToggleTheme = function (event) {
     
@@ -27,9 +25,8 @@ export const saveTheme = function () {
         bodyRef.classList.add(DARK)
         toogleRef.checked = true
     }
-    else
-    {
-         bodyRef.classList.add(LIGHT)
+    else {
+        bodyRef.classList.add(LIGHT)
         toogleRef.checked = false
     }
-}
+};
